@@ -1,47 +1,13 @@
-import React, {useEffect, useState} from 'react'
-import { motion } from 'framer-motion';
+import React, {useEffect} from 'react'
 import '../All-CSS/Services.css';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import AOS from 'aos';
 import 'aos/dist/aos.css'
-export default function Services(props) {
-  const [mousePosition, setMousePosition] = useState({
-    x: 0,
-    y: 0
-  });
-  const [cursorVariants, setcursorVariants] = useState("default");
-  
-  useEffect(() => {
-    const mouseMove = e => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY
-      })
-    }
-    window.addEventListener("mousemove", mouseMove);
-    return () => {
-      window.removeEventListener("mousemove", mouseMove);
-    }
-  }, []);
+export default function Services() {
   useEffect(()=>{
     AOS.init({duration: 2000});
   },[]);
-  const variants = {
-    default: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16
-    },
-    text: {
-      height: 150,
-      width: 150,
-      x: mousePosition.x - 75,
-      y: mousePosition.y - 75
-    }
-  }
-  
-  const textEnter = () => setcursorVariants("text");
-  const textLeave = () => setcursorVariants("default");
+
   return (
   <>
   <Helmet>
@@ -49,73 +15,106 @@ export default function Services(props) {
         <meta name="description" content="Truck Logistic Company" />
         <link rel='canonical' href='/Services'/>
     </Helmet>
-    <div onMouseEnter={textEnter} onMouseLeave={textLeave}>
-      <motion.div className="cursor"
-            variants={variants}
-            animate={cursorVariants} />
-    </div>
     <section>
-      <div className="serviceBanner">
-      <h1 data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">Sixty Seconds Logistics LLC | Services  </h1>
-          <span><h5 data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000"><Link to="/">Home</Link>&gt; Services</h5></span>
-      </div>
-    </section>
+        <div className="bannerSection">
+          <div className="bannerLeftImg" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+            <img src="https://www.reshot.com/preview-assets/illustrations/F7S5G9VKH4/web-designer-at-work-F7S5G9VKH4-w1600.jpg" alt="Banner Image" />
+          </div>
+          <div className="bannerRightContent">
+            <span data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">We Are</span>
+            <h4 data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000"><span>Next Leve</span> Service Provider</h4>
+            <p data-aos="fade-up" data-aos-delay="1000" data-aos-duration="700">At BytePulse Solutions, we are a passionate team of experts dedicated to delivering innovative and effective IT services. With a deep understanding of the digital landscape and a commitment to staying at the forefront of the industry, we specialize in crafting tailored solutions that drive measurable results for businesses. From creative and digital services to custom solutions and strategic consulting, we are here to help you succeed in today's ever-evolving digital world.</p>
+          </div>
+        </div>
+      </section>
+      <div className="seperation"></div>
+      <section>
+                <div className="bannerSection">
+                    <div className="bannerLeftImg" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                        <img src="https://outsourcetoasia.io/wp-content/uploads/2023/03/Artboard-1-copy-3.png" alt="Banner Image" />
+                    </div>
+                    <div className="bannerRightContent">
+                        <span data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">Creative <br /> Designing</span>
+                        <p data-aos="fade-up" data-aos-delay="1000" data-aos-duration="700">When it comes to creative designing, our focus is on delivering exceptional results that go beyond your expectations. Whether you’re looking for a logo design, brand design, or brand overhaul, our team has got you covered.</p>
+                    </div>
+                </div>
+            </section>
     <div className="seperation"></div>
-    <section >
-        <div className="serviceMainContent"  onMouseEnter={textEnter} onMouseLeave={textLeave}>
-        <h1 data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">Why Choose <span> Sixty Seconds Logistics LLC </span></h1>
-        </div>
-        <div className="main">
-         <div className="serviceOne">
-           <div className="iconn" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000" style={{backgroundColor: props.mode === 'light' ? 'black' : 'white'}} onMouseEnter={textEnter} onMouseLeave={textLeave}>
-            <i className='fas fa-user'></i>
-          </div>
-          <div className="content" onMouseEnter={textEnter} onMouseLeave={textLeave}>
-            <h1 data-aos="fade-up" data-aos-delay="700" data-aos-duration="1000">Good ratio of office support to drivers(Available 24/7 to help on dispatch and billing matters)</h1>
-            <p data-aos="fade-up" data-aos-delay="800" data-aos-duration="700">We offer 24/7 support with a minimum of 2 staff assigned for each truck. We offer consistent support seven days a week even on weekends and holidays, day and night.</p>
-          </div>
-         </div>
-         <div className="serviceOne">
-           <div className="iconn" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1000" style={{backgroundColor: props.mode === 'light' ? 'black' : 'white'}} onMouseEnter={textEnter} onMouseLeave={textLeave}>
-            <i className='fas fa-check'></i>
-          </div>
-          <div className="content" onMouseEnter={textEnter} onMouseLeave={textLeave}>
-            <h1 data-aos="fade-up" data-aos-delay="900" data-aos-duration="1000">Premium firm of choice for many carriers and truckers</h1>
-            <p data-aos="fade-up" data-aos-delay="1000" data-aos-duration="700">We go above and beyond for our clients, we dispatch trucks for clients like our very own. We take pride in helping our clients grow their business and fleet. Your success is our success.</p>
-          </div>
-         </div>
-         <div className="serviceOne">
-           <div className="iconn" data-aos="fade-up" data-aos-delay="1100" data-aos-duration="1000" style={{backgroundColor: props.mode === 'light' ? 'black' : 'white'}} onMouseEnter={textEnter} onMouseLeave={textLeave}>
-            <i className='fas fa-thumbs-up'></i>
-          </div>
-          <div className="content" onMouseEnter={textEnter} onMouseLeave={textLeave}>
-            <h1 data-aos="fade-up" data-aos-delay="1200" data-aos-duration="1000">Efficient Invoice Management System</h1>
-            <p data-aos="fade-up" data-aos-delay="1300" data-aos-duration="700">Efficient Invoice Management System We work with multiple factoring firms and have established processes in place to ensure our clients loads are billed and paid timely. We keep you copied in all our emails with daily progress updates.</p>
-          </div>
-         </div>
-         <div className="serviceOne">
-           <div className="iconn" data-aos="fade-up" data-aos-delay="1400" data-aos-duration="1000" style={{backgroundColor: props.mode === 'light' ? 'black' : 'white'}} onMouseEnter={textEnter} onMouseLeave={textLeave}>
-            <i className='fas fa-phone'></i>
-          </div>
-          <div className="content" onMouseEnter={textEnter} onMouseLeave={textLeave}>
-            <h1 data-aos="fade-up" data-aos-delay="1500" data-aos-duration="1000">Service Oriented with focus on developing good long term relationships with brokers</h1>
-            <p data-aos="fade-up" data-aos-delay="1600" data-aos-duration="700">Service Oriented with focus on developing good long term relationships with brokers We focus on developing good long term relationships with brokers and shippers. Providing good service is essential to building trust and securing dedicated freight. Our goal is to ensure we make our clients the preferred carrier of choice for all brokers and shippers we work with.</p>
-          </div>
-         </div>
-         <div className="serviceOne">
-           <div className="iconn" data-aos="fade-up" data-aos-delay="1700" data-aos-duration="1000" style={{backgroundColor: props.mode === 'light' ? 'black' : 'white'}} onMouseEnter={textEnter} onMouseLeave={textLeave}>
-            <i className='fas fa-comment-alt'></i>
-          </div>
-          <div className="content" onMouseEnter={textEnter} onMouseLeave={textLeave}>
-            <h1 data-aos="fade-up" data-aos-delay="1800" data-aos-duration="1000">We always maintain close communication with all our clients</h1>
-            <p data-aos="fade-up" data-aos-delay="1900" data-aos-duration="700">Maintaining close communication with all parties, from shippers, brokers and the drivers makes all differences in the level of service we offer to our end client. We recognize this and have established systems and processes in place to ensure status of loads or issues on loading or unloading is managed and resolved timely in the best interest of all parties.</p>
-          </div>
-         </div>
-        </div>
-        <div data-aos="fade-up" data-aos-delay="2000" data-aos-duration="1000" className="buttonService">
-          <Link to="/Contact"><button>Contact US &gt;</button></Link>
-        </div>
-    </section>
+    <section>
+                <div className="bannerSection">
+                    <div className="bannerLeftImg" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                        <img src="https://outsourcetoasia.io/wp-content/uploads/2023/03/Artboard-1.png" alt="Banner Image" />
+                    </div>
+                    <div className="bannerRightContent">
+                        <span data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">Web <br /> Development</span>
+                        <p data-aos="fade-up" data-aos-delay="1000" data-aos-duration="700">As a leading web design company, we understand the importance of a strong online presence in today’s digital landscape. That’s why we provide end-to-end web development solutions that enable our clients to establish a robust online presence and drive revenue growth.</p>
+                    </div>
+                </div>
+            </section>
+    <div className="seperation"></div>
+    <section>
+                <div className="bannerSection">
+                    <div className="bannerLeftImg" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                        <img src="https://outsourcetoasia.io/wp-content/uploads/2023/03/Artboard-1-copy.png" alt="Banner Image" />
+                    </div>
+                    <div className="bannerRightContent">
+                        <span data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">Digital <br /> Marketing</span>
+                        <p data-aos="fade-up" data-aos-delay="1000" data-aos-duration="700">As a leading digital marketing agency, we understand the power of digital marketing and offer a comprehensive range of digital marketing services to help businesses thrive online. We provide end-to-end digital marketing solutions that deliver measurable results. Trust us to be your partner in your digital marketing journey and take your business to new heights.</p>
+                    </div>
+                </div>
+            </section>
+    <div className="seperation"></div>
+    <section>
+                <div className="bannerSection">
+                    <div className="bannerLeftImg" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                        <img src="https://outsourcetoasia.io/wp-content/uploads/2023/03/Artboard-1-copy-4.png" alt="Banner Image" />
+                    </div>
+                    <div className="bannerRightContent">
+                        <span data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">App
+                            <br /> Development</span>
+                        <p data-aos="fade-up" data-aos-delay="1000" data-aos-duration="700">We turn your business vision into an immersive digital reality. With our app development services, we can help you create a user-friendly. and intuitive mobile application that can help you convert your users into loyal customers. We understand that your users are looking for a seamless experience, and our team of experts ensures that your app delivers just that.</p>
+                    </div>
+                </div>
+            </section>
+    <div className="seperation"></div>
+    <section>
+                <div className="bannerSection">
+                    <div className="bannerLeftImg" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                        <img src="https://outsourcetoasia.io/wp-content/uploads/2023/03/Artboard-1-copy-5.png" alt="Banner Image" />
+                    </div>
+                    <div className="bannerRightContent">
+                        <span data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">Video
+                            <br /> Production</span>
+                        <p data-aos="fade-up" data-aos-delay="1000" data-aos-duration="700">Video production that can help take your brand to the next level! Our video production service creates inspiring and captivating animated videos that tell your unique story. As a top video production company, we specialize in creating explainer videos, corporate videos, and brand videos that showcase your business in the best possible light.</p>
+                    </div>
+                </div>
+            </section>
+    <div className="seperation"></div>
+    <section>
+                <div className="bannerSection">
+                    <div className="bannerLeftImg" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                        <img src="https://outsourcetoasia.io/wp-content/uploads/2023/03/Artboard-1-copy-13.png" alt="Banner Image" />
+                    </div>
+                    <div className="bannerRightContent">
+                        <span data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">Content
+                            <br /> Writing</span>
+                        <p data-aos="fade-up" data-aos-delay="1000" data-aos-duration="700">We believe in delivering top-notch content writing services that will help you achieve your business goals. Our team of experienced writers is committed to providing you with well-researched, grammatically correct, and engaging content that will help you establish your online presence and increase your brand visibility.</p>
+                    </div>
+                </div>
+            </section>
+    <div className="seperation"></div>
+    <section>
+                <div className="bannerSection">
+                    <div className="bannerLeftImg" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                        <img src="https://outsourcetoasia.io/wp-content/uploads/2023/03/Artboard-1-copy-6.png" alt="Banner Image" />
+                    </div>
+                    <div className="bannerRightContent">
+                        <span data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">Cyber
+                            <br /> Security</span>
+                        <p data-aos="fade-up" data-aos-delay="1000" data-aos-duration="700">At our cyber security company, we take the security of your business seriously. Our top priority is ensuring the safety of your data and network from any potential threats. With our team of experts and advanced security technologies, you can rest assured that your business is in safe hands.</p>
+                    </div>
+                </div>
+            </section>
     <div className="seperation"></div>
   </>
   )

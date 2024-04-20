@@ -23,17 +23,5 @@ export const MenuFooter =[
     cName:"footer-links",
     icon:"fa-solid fa-address-book"
 },
-{
-    title: "Freight Rates",
-    url: "/Freight-Rates",
-    cName:"footer-links",
-    icon:"fa-solid fa-truck"
-},
-{
-    title: "Rate Negociation",
-    url: "/Rate-Negociation",
-    cName:"footer-links",
-    icon:"fa-solid fa-handshake"
-},
 
 ]

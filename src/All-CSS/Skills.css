@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primaryColor: #34C5F3;
+}
+.bannerSection {
+    max-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin-top: 150px;
+    padding: 10px 80px;
+}
+
+.bannerLeftImg img {
+    width: 40vw;
+}
+
+.bannerRightContent span {
+    color: var(--primaryColor);
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.bannerRightContent p {
+    text-align: justify;
+    width: 70%;
+}
+.ban{
+    margin-top: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ban img{
+    width: 60vw;
+}
+.midSection {
+    max-width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin-top: 150px;
+    padding: 10px 40px;
+}
+.midLeftImg{
+    margin-left: 10%;
+}
+.midLeftImg img {
+    width: 30vw;
+}
+
+.midRightContent span {
+    color: var(--primaryColor);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.midRightContent p {
+    text-align: justify;
+    width: 70%;
+}
+.Skill-Button button {
+    font-size: 12px;
+    text-align: center;
+    /* position: relative;
+    left: 50%;
+    transform: translate(-50%); */
+    color: white;
+    border: none;
+    background-color: black;
+    width: 8rem;
+    height: 3rem;
+    border-radius: 8px;
+}
+
+.Skill-Button button:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    -webkit-transition: .5s all ease-in-out;
+    -o-transition: .5s all ease-in-out;
+    transition: .5s all ease-in-out;
+    font-weight: 600px;
+}
+@media screen and (max-width: 395px){
+    .bannerSection {
+        flex-direction: column-reverse;
+        padding: 0px 20px;
+    }
+    .midSection{
+        flex-direction: column;
+        padding: 0px 20px;
+    }
+    .midLeftImg{
+        margin-left: 0%;
+    }
+    .midLeftImg img {
+        width: 40vh;
+    }
+}
+@media screen and (max-width: 850px) {
+
+    .bannerSection {
+        flex-direction: column-reverse;
+        padding: 0px 20px;
+        padding-top: 50px;
+    }
+
+    .bannerLeftImg img ,.ban img, .midLeftImg img{
+        width: 40vh;
+        padding: 10px 0px;
+    }
+
+    .bannerRightContent span {
+        color: var(--primaryColor);
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    .midSection{
+        flex-direction: column;
+        padding: 0px 20px;
+    }
+    .midLeftImg{
+        margin-left: 0%;
+    }
+    .midRightContent span{
+        font-size: 2rem;
+    }
+
+    .bannerRightContent p ,.midRightContent p{
+        text-align: justify;
+        width: 100%;
+        padding: 10px 0px;
+    }
+}
+@media screen and (max-width:1200px) {
+    .bannerSection {
+        flex-direction: column-reverse;
+        padding: 0px 20px;
+        padding-top: 50px;
+    }
+    .midSection{
+        flex-direction: column;
+        padding: 0px 20px;
+    }
+
+}

@@ -6,16 +6,14 @@ import logo from '../logo.svg';
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 
-const Navbar = ({ mode, toggleMode }) => {
+const Navbar = () => {
   const [clicked, setClicked] = useState(false);
 
   const handleMenuClick = () => {
     setClicked(!clicked);
   };
 
-  const handleDarkModeClick = () => {
-    toggleMode();
-  };
+  
 
   useEffect(()=>{
     AOS.init({duration: 2000});
@@ -25,13 +23,11 @@ const Navbar = ({ mode, toggleMode }) => {
 
   return (
     <>
-      <nav className={`NavbarItems navbar-${mode} bg-${mode}`}>
+      <nav className={`NavbarItems navbar-}`}>
         <Link exact to="/"><img src={logo}  data-aos="fade-down" data-aos-delay="100" data-aos-duration="1000" className="App-logo" alt="logo" /></Link>
-        <div className="modeIcon" onClick={handleDarkModeClick} >
-          <i className={mode === 'light' ? "fa-solid fa-moon" : "fa-solid fa-sun"}></i>
-        </div>
+       
         <div className="menu-icons" onClick={handleMenuClick} >
-          <i className={`${clicked ? "fas fa-times" : "fas fa-bars"} ${mode === 'dark' ? 'dark-mode-text' : ''}`} ></i>
+          <i className={`${clicked ? "fas fa-times" : "fas fa-bars"}`} ></i>
         </div>
         <ul className={clicked ? "nav-menu active" : "nav-menu"}>
           {MenuData.map((item, index) => (
@@ -39,7 +35,7 @@ const Navbar = ({ mode, toggleMode }) => {
               <Link
                 exact
                 to={item.url}
-                className={`${item.cName} ${mode === 'dark' ? 'dark-mode-text' : ''}`}
+                className={`${item.cName} `}
               >
                 <i className={item.icon}></i>
                 {item.title}

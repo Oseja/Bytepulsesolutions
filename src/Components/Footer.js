@@ -16,7 +16,7 @@ export default function Footer(props) {
                 <div className='FooterItems' data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                     <div className="logoContent">
                         <Link exact to="/"><img src={logo} className="FooterApp-logo" alt="logo" /></Link>
-                        <p>We are a professional truck dispatch company that provides quality services for owner-operators and small trucking companies.We help find the best freight load possible with the highest prices and focus on keeping you loaded on a weekly basis and much more.</p>
+                        <p>At BytePulse Solutions, we're a passionate team of IT experts committed to delivering innovative and effective digital solutions. With a deep understanding of the digital landscape and a relentless drive to stay at the forefront of the industry, we specialize in crafting tailored IT solutions that drive measurable results for businesses. From creative and digital services to custom solutions and strategic consulting, we are dedicated to helping you succeed in today's ever-evolving digital world.</p>
                     </div>
 
                     <div className="footer-option">
@@ -36,7 +36,7 @@ export default function Footer(props) {
                     </div>
                     <div className="footer-work">
                         <ul>
-                            <h1>Who Can Work With US</h1>
+                            <h1>Services</h1>
                             {MenuFooterTwo.map((item, index) => {
                                 return (
                                     <li key={index}>
@@ -51,29 +51,29 @@ export default function Footer(props) {
                     <div className="footer-contact">
                         <ul>
                             <h1>Contact US</h1>
-                            <h5>Sixty Seconds Logistics LLC</h5>
+                            <h5>BYTEPULSE SOLUTION</h5>
                             <li
-                                className='footer-links-contact'><i className='fas fa-map-marker-alt'></i><span>SIXTY SECONDS LOGISTICS LLC. <br />
-                                    2323 S Voss Rd, Suite # 110, Houston, TX 77057</span></li>
+                                className='footer-links-contact'><i className='fas fa-map-marker-alt'></i><span>BYTEPULSE SOLUTION <br />
+                                    2323 S Voss Rd, Suite # 109 , Houston, TX 77057</span></li>
                             <li className='footer-links-contact'><i className='fas fa-envelope'></i>
-                                <span className='maillink'><Link to="mailto:Dispatch@sixtysecondslogistics.com">Dispatch@sixtysecondslogistics.com</Link></span></li>
+                                <span className='maillink'><Link to="mailto:mali.f3640@gmail.com">mali.f3640@gmail.com</Link></span></li>
                             <li className='footer-links-contact'><i className='fas fa-globe'></i>
-                                <span className='weblink'><Link to="www.sixtysecondslogistics.com">www.sixtysecondslogistics.com
+                                <span className='weblink'><Link to="www.bytepulsesolutions.com">www.bytepulsesolutions.com
                                 </Link></span></li>
                             <li className='footer-links-contact'><i className='fas fa-phone'></i>
-                                <span className='phonelink'><Link to="tel:+1(832) 263-1799">(832) 263-1799</Link></span></li>
+                                <span className='phonelink'><Link to="tel:+1(832) 500 8811">(832) 500 8811</Link></span></li>
                         </ul>
                     </div>
                     <div className="footer-socials">
                         <h1>Follow US</h1>
                         <ul>
-                            <Link to="https://www.facebook.com/SixtySecondsLogistics">
+                            <Link to="#">
                                 <li><i className='fab fa-facebook'></i></li>
                             </Link>
-                            <Link to="https://www.instagram.com/sixtysecondslogistics/">
+                            <Link to="#">
                                 <li><i className='fab fa-instagram'></i></li>
                             </Link>
-                            <Link to="https://twitter.com/SixtySecondsLLC">
+                            <Link to="#">
                                 <li><i className='fab fa-twitter'></i></li>
                             </Link>
                             {/* <Link to="">
@@ -82,21 +82,21 @@ export default function Footer(props) {
                             {/* <Link to="">
                                 <li><i className='fab fa-linkedin'></i></li>
                             </Link> */}
-                            <Link to="https://www.reddit.com/user/SixtySecondsLogistic">
+                            <Link to="#">
                                 <li><i className='fab fa-reddit'></i></li>
                             </Link>
-                            <Link to="https://www.tiktok.com/@sixtysecondslogisticsllc">
+                            <Link to="#">
                                 <li><i className='fab fa-tiktok'></i></li>
-                            </Link><Link to="https://www.pinterest.com/sixtysecondslogistics/">
+                            </Link><Link to="#">
                                 <li><i className='fab fa-pinterest'></i></li>
                             </Link>
-                            <Link to="https://api.whatsapp.com/send?phone=18324227704">
+                            <Link to="#">
                                 <li><i className='fab fa-whatsapp'></i></li>
                             </Link>
-                            <Link to="https://www.threads.net/@sixtysecondslogistics">
+                            <Link to="#">
                                 <li><i className='fab fa-threads'></i></li>
                             </Link>
-                            <Link to="https://www.tumblr.com/sixtysecondslogistics">
+                            <Link to="#">
                                 <li><i className='fab fa-tumblr'></i></li>
                             </Link>
                             {/* <Link to="">

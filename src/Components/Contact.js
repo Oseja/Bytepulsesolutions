@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { motion } from 'framer-motion';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import FormImg from '../FormImg.svg';
 import PhoneInput from 'react-phone-input-2'
 import axios from 'axios';
@@ -11,40 +10,6 @@ import { Helmet } from 'react-helmet';
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 export default function Contact(props) {
-  const [mousePosition, setMousePosition] = useState({
-    x: 0,
-    y: 0
-  });
-  const [cursorVariants, setcursorVariants] = useState("default");
-
-  useEffect(() => {
-    const mouseMove = e => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY
-      })
-    }
-    window.addEventListener("mousemove", mouseMove);
-    return () => {
-      window.removeEventListener("mousemove", mouseMove);
-    }
-  }, []);
-
-  const variants = {
-    default: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16
-    },
-    text: {
-      height: 150,
-      width: 150,
-      x: mousePosition.x - 75,
-      y: mousePosition.y - 75
-    }
-  }
-
-  const textEnter = () => setcursorVariants("text");
-  const textLeave = () => setcursorVariants("default");
 
   let history = useNavigate();
   const [data, setData] = useState({
@@ -67,16 +32,16 @@ export default function Contact(props) {
       cmessage: data.cmessage,
     }
     Swal.fire({
-      title: 'Please Wait', 
+      title: 'Please Wait',
       text: 'Your data is being processed',
       onBeforeOpen: () => {
         Swal.showLoading();
       },
-      allowOutsideClick: false, 
+      allowOutsideClick: false,
     });
-    axios.post('/sixtySeconds.php', sendData)
+    axios.post('./bytepulse.php', sendData)
       .then((result) => {
-        console.log(result.data); 
+        console.log(result.data);
         if (result.data.status === 'valid') {
           Swal.fire({
             title: 'Success',
@@ -96,137 +61,124 @@ export default function Contact(props) {
       .catch((error) => {
         console.error(error);
       });
-    }
-    useEffect(()=>{
-      AOS.init({duration: 2000});
-    },[]);
+  }
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
   return (
     <>
-    <Helmet>
-    <title>Sixty Seconds Logistics LLC - Contact</title>
-        <meta name="description" content="Truck Logistic Company" />
-        <link rel='canonical' href='/Contact'/>
-    </Helmet>
-      <div onMouseEnter={textEnter} onMouseLeave={textLeave}>
-        <motion.div className="cursor"
-          variants={variants}
-          animate={cursorVariants} />
-      </div>
+      <Helmet>
+        <title>BYTEPULSE SOLUTION - Contact</title>
+        <meta name="description" content="IT Services Providers" />
+        <link rel='canonical' href='/Contact' />
+      </Helmet>
       <section>
-        <div className="contactBanner">
-          <h1 data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">Sixty Seconds Logistics LLC | Contact US  </h1>
-          <span><h5 data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000"><Link to="/">Home</Link>&gt; Contact</h5></span>
+        <div className="bannerSection">
+          <div className="bannerLeftImg" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+            <img src="https://outsourcetoasia.io/wp-content/uploads/2023/04/one-more-vector.png" alt="Banner Image" />
+          </div>
+          <div className="bannerRightContent">
+            <span data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">Contact Us</span>
+            <p data-aos="fade-up" data-aos-delay="1000" data-aos-duration="700">Our team is always ready to hear from you! Whether you have a question, a concern, or a project in mind, we’re here to help. Don’t hesitate to reach out – we look forward to hearing from you!</p>
+          </div>
         </div>
       </section>
       <section>
         <div className="addressMain">
           <div className="IconsMain">
-            <div className="phone" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000" style={{ backgroundColor: props.mode === 'light' ? '#ebebeb' : '#222', color: props.mode === 'light' ? 'black' : 'white' }} onMouseEnter={textEnter} onMouseLeave={textLeave}>
+            <div className="phone" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000"  >
               <i data-aos="fade-up" data-aos-delay="500" data-aos-duration="800" className='fas fa-phone'></i><span>Phone Number:</span><br />
-              <Link to="tel:+1(832) 263-1799" style={{ backgroundColor: props.mode === 'light' ? '#ebebeb' : '#222', color: props.mode === 'light' ? 'black' : 'white' }}>(832) 263-1799</Link>
+              <Link to="tel:+1(832) 500 8811">(832) 500 8811</Link>
             </div>
-            <div className="address" data-aos="fade-up" data-aos-delay="600" data-aos-duration="900" style={{ backgroundColor: props.mode === 'light' ? '#ebebeb' : '#222', color: props.mode === 'light' ? 'black' : 'white' }} onMouseEnter={textEnter} onMouseLeave={textLeave}>
+            <div className="address" data-aos="fade-up" data-aos-delay="600" data-aos-duration="900"  >
               <i className='fas fa-map-marker-alt' data-aos="fade-up" data-aos-delay="700" data-aos-duration="800"></i><span>Address:</span> <br />
-              <h1 style={{ backgroundColor: props.mode === 'light' ? '#ebebeb' : '#222', color: props.mode === 'light' ? 'black' : 'white' }}>2323 S Voss Rd, Suite # 110, Houston, TX 77057</h1>
+              <h1 >2323 S Voss Rd, Suite # 109, Houston, TX 77057</h1>
             </div>
-            <div className="email" data-aos="fade-up" data-aos-delay="800" data-aos-duration="800" style={{ backgroundColor: props.mode === 'light' ? '#ebebeb' : '#222', color: props.mode === 'light' ? 'black' : 'white' }} onMouseEnter={textEnter} onMouseLeave={textLeave}>
+            <div className="email" data-aos="fade-up" data-aos-delay="800" data-aos-duration="800"  >
               <i className='fas fa-envelope' data-aos="fade-up" data-aos-delay="900" data-aos-duration="800"></i><span>Email:</span> <br />
-              <Link to="mailto:Dispatch@sixtysecondslogistics.com" style={{ backgroundColor: props.mode === 'light' ? '#ebebeb' : '#222', color: props.mode === 'light' ? 'black' : 'white' }}>Dispatch@sixtysecondslogistics.com</Link>
+              <Link to="mailto:mali.f3640@gmail.com">mali.f3640@gmail.com</Link>
             </div>
           </div>
         </div>
       </section>
       <section>
         <div className="formMain">
-          <div className="form" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" style={{ backgroundColor: props.mode === 'light' ? '#ebebeb' : '#222', color: props.mode === 'light' ? 'black' : 'white' }}>
-            <form method='post' onSubmit={submitForm} style={{ backgroundColor: props.mode === 'light' ? '#ebebeb' : '#222', color: props.mode === 'light' ? 'black' : 'white' }}>
-            <h1 data-aos="fade-up" data-aos-delay="300" data-aos-duration="900" className="form-heading" onMouseEnter={textEnter} onMouseLeave={textLeave}>Get Free Quote Now</h1>
-            <input
-            data-aos="fade-up" data-aos-delay="400" data-aos-duration="900"
-            onMouseEnter={textEnter} onMouseLeave={textLeave}
-            style={{ backgroundColor: props.mode === 'light' ? '#ebebeb' : '#222', color: props.mode === 'light' ? 'black' : 'white', border: props.mode === 'light' ? '1px solid #222' : '1px solid #ebebeb'}}
-              type="text"
-              placeholder="Enter Your Name"
-              className="form-name"
-              name="cname"
-              pattern="^[A-Za-z ]{3,50}$"
-              required
-              onChange={handleChange}
-              value={data.cname}
-            />
-            <input
-            data-aos="fade-up" data-aos-delay="500" data-aos-duration="900"
-            onMouseEnter={textEnter} onMouseLeave={textLeave}
-            style={{ backgroundColor: props.mode === 'light' ? '#ebebeb' : '#222', color: props.mode === 'light' ? 'black' : 'white', border: props.mode === 'light' ? '1px solid #222' : '1px solid #ebebeb'}}
-              type="email"
-              placeholder="Enter Your Email"
-              className="form-email"
-              name="cemail"
-              required
-              onChange={handleChange}
-              value={data.cemail}
-            />
-            <div className="phone-country" data-aos="fade-up" data-aos-delay="600" data-aos-duration="900">
-              <PhoneInput
-              
-              onMouseEnter={textEnter} onMouseLeave={textLeave}
-                country={'us'} 
-                value={data.cphone}
-                className="Countrycode-input PhoneInput"
-                onChange={(value, country, e, formattedValue) => {
-                  const countryCode = country.dialCode;
-                  const phoneNumber = formattedValue;
-                  setData({ ...data, code: countryCode, cphone: phoneNumber });
-                }}
-                inputStyle={{
-                  backgroundColor: props.mode === 'light' ? '#ebebeb' : '#222', color: props.mode === 'light' ? 'black' : 'white',
-                  height: '5rem',border: props.mode === 'light' ? '1px solid #222' : '1px solid #ebebeb',
-                  borderRadius: '.7rem',
-                  width: props.screenWidth <= 850 ? '30vw' : '100%',
-                }}
-                dropdownStyle={{
-                  backgroundColor: props.mode === 'light' ? '#ebebeb' : '#222', color: props.mode === 'light' ? 'black' : 'white',
-                  border: props.mode === 'light' ? '1px solid #222' : '1px solid #ebebeb'}}                
-                inputProps={{
-                  name: 'cphone',
-                  required: true,
-                }}
-                buttonStyle={{
-                  backgroundColor: props.mode === 'light' ? '#ebebeb' : '#222', color: props.mode === 'light' ? 'black' : 'white',
-                  borderRadius: '.4rem'
-                }}
-              />
+          <div className="form" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" >
+            <form method='post' onSubmit={submitForm} >
+              <h1 data-aos="fade-up" data-aos-delay="300" data-aos-duration="900" className="form-heading" >Get Free Quote Now</h1>
               <input
-              data-aos="fade-up" data-aos-delay="700" data-aos-duration="900"
-              onMouseEnter={textEnter} onMouseLeave={textLeave}
-              style={{color: props.mode === 'light' ? 'black' : 'white', border: props.mode === 'light' ? '1px solid #222' : '1px solid #ebebeb'}}
-                type="date"
-                placeholder='Enter Date Here'
-                className="form-date"
-                name="cdate"
+                data-aos="fade-up" data-aos-delay="400" data-aos-duration="900"
+                type="text"
+                placeholder="Enter Your Name"
+                className="form-name"
+                name="cname"
+                pattern="^[A-Za-z ]{3,50}$"
                 required
                 onChange={handleChange}
-                value={data.cdate}
+                value={data.cname}
               />
-               <textarea
-               data-aos="fade-up" data-aos-delay="600" data-aos-duration="800"
-               onMouseEnter={textEnter} onMouseLeave={textLeave}
-               style={{color: props.mode === 'light' ? 'black' : 'white', border: props.mode === 'light' ? '1px solid #222' : '1px solid #ebebeb'}}
-              placeholder="Message"
-              name="cmessage"
-              className="form-message"
-              required
-              onChange={handleChange}
-              value={data.cmessage}
-            ></textarea>
-            <div className="buttonForm" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
-            <button type="submit" className="form-btn" name="savebtn" onMouseEnter={textEnter} onMouseLeave={textLeave}>Submit</button>
-            </div>
-            </div>
+              <input
+                data-aos="fade-up" data-aos-delay="500" data-aos-duration="900"
+                type="email"
+                placeholder="Enter Your Email"
+                className="form-email"
+                name="cemail"
+                required
+                onChange={handleChange}
+                value={data.cemail}
+              />
+              <div className="phone-country" data-aos="fade-up" data-aos-delay="600" data-aos-duration="900">
+                <PhoneInput
+
+
+                  country={'us'}
+                  value={data.cphone}
+                  className="Countrycode-input PhoneInput"
+                  onChange={(value, country, e, formattedValue) => {
+                    const countryCode = country.dialCode;
+                    const phoneNumber = formattedValue;
+                    setData({ ...data, code: countryCode, cphone: phoneNumber });
+                  }}
+                  inputStyle={{
+                    height: '5rem',
+                    borderRadius: '.7rem',
+                    width: props.screenWidth <= 850 ? '30vw' : '100%',
+                  }}
+                  inputProps={{
+                    name: 'cphone',
+                    required: true,
+                  }}
+                  buttonStyle={{
+                    borderRadius: '.4rem'
+                  }}
+                />
+                <input
+                  data-aos="fade-up" data-aos-delay="700" data-aos-duration="900"
+                  type="date"
+                  placeholder='Enter Date Here'
+                  className="form-date"
+                  name="cdate"
+                  required
+                  onChange={handleChange}
+                  value={data.cdate}
+                />
+                <textarea
+                  data-aos="fade-up" data-aos-delay="600" data-aos-duration="800"
+                  placeholder="Message"
+                  name="cmessage"
+                  className="form-message"
+                  required
+                  onChange={handleChange}
+                  value={data.cmessage}
+                ></textarea>
+                <div className="buttonForm" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
+                  <button type="submit" className="form-btn" name="savebtn" >Submit</button>
+                </div>
+              </div>
             </form>
           </div>
           <div className="formImage" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
-            <img src={FormImg} alt="iamge form" onMouseEnter={textEnter} onMouseLeave={textLeave} loading='lazy'/>
+            <img src={FormImg} alt="iamge form" loading='lazy' />
           </div>
         </div>
       </section>

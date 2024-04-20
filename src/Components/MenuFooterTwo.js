@@ -1,37 +1,43 @@
 export const MenuFooterTwo =[
     {
-    title: "Power Only",
-    url: "/Poweronly",
+    title: "Creative Design",
+    url: "/Creative-Design",
     cName:"footer-linkstwo",
     icon:""
 },
 {
-    title: "Dry Van",
-    url: "/Dryvan",
+    title: "Web Development",
+    url: "/Web-Development",
     cName:"footer-linkstwo",
     icon:""
 },
 {
-title: "FlatBed",
-url: "/Flatbed",
+title: "Digital Marketing",
+url: "/Digital-Marketing",
 cName:"footer-linkstwo",
 icon:""
 },
     {
-    title: "Box Truck",
-    url: "/Boxtruck",
+    title: "App Development",
+    url: "/App-Development",
     cName:"footer-linkstwo",
     icon:""
 },
     {
-    title: "Reefer",
-    url: "/Reefer",
+    title: "Video Animation",
+    url: "/Video-Animation",
     cName:"footer-linkstwo",
     icon:""
 },
     {
-    title: "Hot Short",
-    url: "/Hotshort",
+    title: "Content Writing",
+    url: "/Content-Writing",
+    cName:"footer-linkstwo",
+    icon:""
+},
+    {
+    title: "Cyber Security",
+    url: "/Cyber-Security",
     cName:"footer-linkstwo",
     icon:""
 },
