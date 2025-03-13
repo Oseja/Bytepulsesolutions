@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primaryColor: #34C5F3;
+}
+.bannerSection {
+    max-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin-top: 150px;
+    padding: 10px 80px;
+}
+
+.bannerLeftImg img {
+    width: 30vh;
+}
+.bannerRightContent h4 span,h4{
+    font-size: 2rem;
+    font-weight: 900px;
+}
+.bannerRightContent span {
+    color: var(--primaryColor);
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.bannerRightContent p {
+    text-align: justify;
+    width: 70%;
+}
+@media screen and (max-width: 395px){
+    .bannerSection {
+        flex-direction: column-reverse;
+        padding: 0px 20px;
+    }
+}
+@media screen and (max-width: 850px) {
+
+    .bannerSection {
+        flex-direction: column-reverse;
+        padding: 0px 20px;
+        padding-top: 50px;
+    }
+
+    .bannerLeftImg img{
+        width: 40vh;
+        padding: 10px 0px;
+    }
+
+    .bannerRightContent span {
+        color: var(--primaryColor);
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    .bannerRightContent p{
+        text-align: justify;
+        width: 100%;
+        padding: 10px 0px;
+    }
+}
+@media screen and (max-width:1200px) {
+    .bannerSection {
+        flex-direction: column-reverse;
+        padding: 0px 20px;
+        padding-top: 50px;
+    }
+}
